@@ -158,6 +158,24 @@
             color: var(--accent-color);
         }
 
+        /* --- NEW CSS FOR NESTED ORDERED LIST --- */
+        .content-list li ol {
+            list-style-type: decimal;
+            list-style-position: outside;
+            margin-top: 1rem;
+            padding-left: 2rem; /* Indents the numbered list */
+        }
+        .content-list li ol li {
+            padding-left: 0.5rem; /* Adds padding for the text after the number */
+            margin-bottom: 0.75rem;
+            position: static;
+        }
+        .content-list li ol li::before {
+            content: none; /* Removes the '■' from the nested list items */
+        }
+        /* --- END NEW CSS --- */
+
+
         .content img {
             max-width: 50%;
             height: auto;
@@ -167,7 +185,7 @@
             box-shadow: 0 6px 15px rgba(0,0,0,0.1);
         }
         
-        .content figcaption {
+        .content figcaption, .content .caption {
             text-align: center;
             font-style: italic;
             color: #555;
@@ -186,9 +204,9 @@
         }
         
         a {
-            color: blue; /* EDITED: Changed from dark blue to standard 'blue' */
-            font-weight: 500;
-            text-decoration: underline; /* EDITED: Ensured underline is active */
+            color: blue; 
+            font-weight: bold; /* <-- CHANGED FROM 500 TO BOLD */
+            text-decoration: underline; 
             transition: color 0.2s ease;
         }
 
@@ -233,7 +251,7 @@
     <main class="container">
         <div class="intro">
             <p class="text-lg">Moin dear Open Science friends of Oldenburg (and beyond),</p>
-            <p>Please feel free to share this newsletter and, as always, feel free to join our online biweekly meetings (Tuesdays 11-12 a.m. on uneven calendar weeks in the study group and A7-0-36: Next meeting on 1st of July) that are open to everyone.</p>
+            <p>Please feel free to share this newsletter and, as always, feel free to join our online biweekly meetings (Tuesdays 10:30-11:30 a.m. on uneven calendar weeks in the study group and A7-0-36: Next meeting on 4th of November) that are open to everyone.</p>
             <p>Previous newsletter issues can be retrieved from the <a href="https://osig-uol.github.io/" target="_blank">OSIG website</a>.</p>
         </div>
 
@@ -246,15 +264,16 @@
         <div class="content">
             <div class="content-inner">
                 <ul class="content-list">
-                    <li>The past few months have been buzzing with activity! In May, we had the pleasure of hosting Sein Jeung for our Open Science Colloquium series. She gave a valuable talk on promoting good scientific practices through teaching, emphasizing that open science extends beyond research into the classroom. It was fantastic to learn from her experience in structuring and organizing an open science course. A heartfelt thank you to Sein for sharing her insights with us!</li>
-                    <li>Our members have also been busy writing grants for the <a href="https://oscars-project.eu/open-calls" target="_blank">OSCARS project call</a>. Julius and Melanie are involved in the EEGManySteps project proposal, a collaboration with TU Berlin and the University of Maastricht aiming to develop a platform for reproducible mobile EEG. At the same time, Karel is part of the OscarsBrain proposal, which seeks to advance open neuroscience with standardized, FAIR-compliant tools for MEG and EEG data. We're keeping our fingers crossed for all the proposals!</li>
-                    <li>On the conference front, Julius, Micha, and Cassie attended the kick-off meeting for the <a href="https://www.lmu.de/psy/de/forschung/meta-rep" target="_blank">METAREP Priority Programme</a> in Tutzing. This exciting program aims to tackle the replication crisis in behavioral, social, and cognitive sciences. We're proud that a project from our department, <a href="https://github.com/metascience-uol" target="_blank">METEOR</a>, is part of it. The project will address the challenge of variability in preprocessing pipelines for mobile EEG and fMRI. We wish the whole team a successful start!</li>
-                    <li>We also had a strong presence at the PuG 2025 conference. Micha, Cassie, and Daniel ran a workshop on multiverse analysis in neuroimaging. In a symposium on methodological advances, Cassie and Daniel gave talks about advancing neuroimaging research with multiverse analysis and knowledge graph. Melanie presented posters on her work with the EEGManySteps project. And for the best news: huge congratulations to Cassie, who won the IGOR (The Interest Group Open and Reproducible Research) Award for Open and Reproducible Science at the conference. What a fantastic achievement!</li>
+                    <li>It’s been a busy and exciting few months for the OSIG community! The highlight of the summer was undoubtedly the first Oldenburg Open Science Conference on July 18th! We were thrilled to welcome over 80 attendees from diverse fields and career stages (from students to professors) coming from Oldenburg, Bremen, Kiel, Trier, Munich, and even Nijmegen. The conference featured amazing talks and lively discussions not just on the why and how of open science, but also on its future – exploring how stakeholders such as universities, funders, and journals can improve its implementation. It was a fantastic day of science! If you missed it, don't worry – the conference materials are available <a href="https://osig-uol.github.io/oosc.html#st-oldenburg-open-science-conference-2025" target="_blank">here</a>. We also plan a second Open Science Conference, so stay tuned for updates!</li>
+                    <figure>
+                    <img src="OSIG_conf.png" alt="Open Science Conference"  onerror="this.onerror=null;this.src='https://placehold.co/400x533/e9ecef/495057?text=Image+Not+Found';">
+                    <figcaption>Some pictures during the Open Science conference (Credit: Cosku Inceler)</figcaption>
+                    </figure>
+                    <li>We also had a strong presence at this year’s DPPD (Differenzielle Psychologie, Persönlichkeitspsychologie und Psychologische Diagnostik) conference! Cassie organized and moderated a well-attended panel discussion on the role of multiverse analysis in achieving scientific rigour. The panel, including Prof. Dr. Jan Wacker (Hamburg), Prof. Dr. Johannes Rodrigues (Würzburg), and Dr. Julia Rohrer (Leipzig) alongside our own Dr. Cassie Ann Short, held a lively and critical exchange on whether multiverse analysis should be a standard practice. The session was a huge success, drawing an engaged audience and receiving highly positive feedback. On top of that, Cassie alsogave a talk in a symposium on machine learning in meta-science, showcasing how modern tools can support open research. Way to go, Cassie!</li>
+                    <li>Cassie also led an important workshop at the Hanse-Wissenschaftskolleg (HWK) on “Enhancing replicability in EEG individual differences research through individually parameterised single-trial EEG – developing a comprehensive signal quality evaluation strategy.” The workshop was a fantastic example of collaboration, bringing together researchers from our own department – including Andrea Hildebrandt, Stefan Debener, Melanie Klapprott, and Karel López Vilaret – with external experts from Germany, Denmark, and the USA. Together, they discussed strategies to improve methodological transparency, reliability, and validity in single-trial EEG research. The group now plans to collaborate on an open framework for reporting, and we look forward to seeing the results of this exciting initiative!</li>
+                    <li>October saw an important panel discussion at the IGOR Hackathon (organized by one of our OSIG members, Julius) titled “Have We Solved the Replication Crisis?”. The October 10th session featured a stellar lineup: Andrea Hildebrandt, Britta Westner, Sein Jeung, and Dorothy Bishop, with Gordon Feld moderating. The panel acknowledged significant progress from reforms such as preregistration and registered reports but emphasized that core challenges remain. Key concerns included measurement reliability, software infrastructure vulnerability, and academic incentives that still privilege novelty over rigour. A recurring theme was the need to treat replication as a routine, structurally supported part of science, not just a temporary 'crisis'.</li>
+                    <li>Our members have also been busy sharing their expertise! Earlier this month, Micha led an interactive session on Open Science methods for PhD students at the <a href="https://kd2school.info/about.html" target="_blank">KD²School in Bremen</a>. The workshop explored the motivations behind Open Science, from the replication crisis to building trust. Participants discussed how practices like FAIR data, reproducible code, and preregistration make science more robust and collaborative. A key takeaway was that Open Science is a journey, not a checklist. As Micha emphasized, taking any step – such as sharing code or preregistering hypotheses – helps build a stronger culture of openness.</li>
                 </ul>
-                <figure>
-                    <img src="Cassie.png" alt="Cassie with her IGOR Award"  onerror="this.onerror=null;this.src='https://placehold.co/400x533/e9ecef/495057?text=Image+Not+Found';">
-                    <figcaption>Cassie with her well-deserved IGOR Award for Open and Reproducible Science from the PuG 2025 conference (Credit: Merlind Ammann)</figcaption>
-                </figure>
             </div>
         </div>
 
@@ -267,9 +286,18 @@
         <div class="content">
              <div class="content-inner">
                  <ul class="content-list">
-                    <li>Remember the Peer Community In (PCI)-Psychology platform we mentioned in our last newsletter? It is now officially open for submissions! PCI offers a fantastic, community-driven path to free Open Access publication. Check out <a href="https://psych.peercommunityin.org/" target="_blank">their webpage</a> to submit your work or to contribute as a reviewer and journal recommender.</li>
-                    <li>Hot off the press, a group of Early Career Researchers and members of IGOR recently published a <a href="https://journals.sagepub.com/doi/10.1177/25152459241297674" target="_blank">paper</a> introducing ARIADNE : A Scientific Navigator to Find Your Way Through the Resource Labyrinth of Psychological Sciences. This incredible project, also available as a <a href="https://igor-biodgps.github.io/ARIADNE/contentpages/intro.html" target="_blank">GitHub book</a>, provides a wealth of resources for conducting transparent research, from project inception to dissemination. Definitely worth a look!</li>
-                </ul>
+                    <li>We are incredibly excited to announce that OSIG has been accepted as a member of the international ReproducibiliTEA network! ReproducibiliTEA is a global grassroots initiative that supports local journal clubs and discussion groups dedicated to open and reproducible research. Joining this network connects OSIG with a vibrant international community, providing fantastic opportunities to exchange ideas, share best practices, and collaborate on open science initiatives. This affiliation strengthens our department’s commitment to transparency and research integrity while increasing its visibility within the global open science community. We can't wait to get started (see our upcoming events)!</li>
+                    <li>The OSIG is delighted to announce the introduction of the OSIG Open Science Award for Practical Projects! This new award will be presented for the first time at the April 2026 Practical Project Symposium. Students can self-nominate their projects until the end of March 2026. The award recognises exceptional integration of open science principles into students’ research practice. OSIG members will evaluate submissions based on open science implementation where relevant, as well as the student’s reflection on the relevance of transparency and reproducibility to their work. We're very much looking forward to seeing the great open science work being done in the practical projects!</li>
+                    <li>For years, our community has discussed the need to reform research assessment. Traditional metrics such as journal impact factors and h-indexes often fail to capture the full scope of scientific contributions, overlooking open science practices such as sharing data, code, and preprints. This is why the Coalition for Reforming Research Assessment (CoARA) was formed – to drive a systemic shift towards a more holistic, responsible, and qualitative evaluation culture. We're excited to see this movement gaining serious momentum in Germany! The German National Chapter of CoARA held its autumn meeting on October 9th–10th, 2025, with 42 German member organizations participating both in person in Berlin and online. The first day featured a public session with updates from the international coalition, including the fantastic news that four German projects received funding through CoARA’s cascade funding program. Attendees also heard updates from working groups on "Peer Review" and "Towards Transformations." The meeting then focused on practical implementation, with members sharing best practices on developing new metrics, raising awareness, and guiding policy. The second day was dedicated to lively discussions on research excellence and how CoARA's principles can support it. The chapter is expected to convene again online in spring 2026, with a special webinar planned to help members develop and implement their CoARA <a href="https://www.coara.org/action-plan/" target="_blank">Action Plans</a>. It's inspiring to see this important work moving forward!</li>
+                    
+                    <li>For those interested in open-science-related events, here are a few to note:
+                        <ol>
+                            <li>"Unlocking Incentives for Future Research – Empowering Early Career Researchers" is an online workshop on November 21, 2025, aimed at ECRs to discuss incentives for a more transparent research environment. <a href="https://www.allianzschwerpunkt-digitalitaet.de/2025/09/25/online-event-unlocking-incentives-for-future-research/" target="_blank">Learn more here</a>.</li>
+                            <li>The RDA (Research Data Alliance) Deutschland Tagung 2026 (RDA Germany Conference 2026), the annual meeting for the German Research Data Alliance (RDA) community, will be held in Potsdam from February 24-25, 2026. <a href="https://indico.desy.de/event/50156/" target="_blank">Details are here</a>.</li>
+                            <li>The FOR (Future of Open Research) 2026 Conference will take place in Munich from May 4-6, 2026, with the theme "The Future of Open Research: Reliable, Responsible, Equitable." <a href="https://opensciencestudies.eu/for-2026-conference/" target="_blank">More information is available here</a>.</li>
+                        </ol>
+                    </li>
+                    </ul>
             </div>
         </div>
 
@@ -282,10 +310,11 @@
         <div class="content">
             <div class="content-inner">
                 <ul class="content-list">
-                    <li>Mark your calendars for a series of exciting events! First up, on June 24th and 25th Cassie is organizing a <a href="https://hanse-ias.de/veranstaltungen/detail/event/520" target="_blank">workshop</a> at the Hanse-Wissenschaftskolleg on strategies to evaluate individually parameterized single-trial EEG, featuring a panel of experts. We can't wait to hear how it goes in the next newsletter, Cassie!</li>
-                    <li>On Friday, June 27th, Daniel will be part of a pre-conference virtual symposium for the <a href="httpsS://nomadit.co.uk/conference/metascience2025/p/16480" target="_blank">METASCIENCE 2025 conference</a>. Together with researchers from Ludwig-Maximilians-University of Munich, University of Cologne, and Chinese University of Hong Kong, he will discuss how meta-science and interdisciplinary research can empower Early Career Researchers. A very timely topic!</li>
-                    <li>Our Open Science Colloquium series continues: On July 10th, Kim Braun from the University Library and Information System will give an informative talk about Open Access publishing and financing options at the University of Oldenburg. This is a must-attend for anyone navigating the world of academic publishing.</li>
-                    <li>And finally, the moment is almost here! The first Oldenburg Open Science Conference 2025 is just around the corner. The full program is live, and it looks incredible. <a href="https://osig-uol.github.io/oosc/" target="_blank">Check it here</a>. To help us finalize planning, registration is necessary for all participants by the July 11th <a href="https://osig-uol.github.io/oosc/registration/" target="_blank">through this link</a>. Don't miss out on a great day of science followed by a small drink reception to network! Sign up whether you're presenting a poster or just joining the discussions. We can't wait to see you there!</li>
+                    <li>Mark your calendars! Are you working with MEG data? Join Karel López Vilaret for a live online workshop on MEGqc, a new open-source pipeline for fast, standardized, and fully reproducible quality assessment, at <a href="https://cuttingeeg.org/practicalmeeg2025/" target="_blank">PracticalMEEG 2025</a>. This hands-on session will provide a full walkthrough, from raw BIDS data to shareable reports, and show how to quantify key noise sources. The session is scheduled for Wednesday, October 30th, from 2:00 pm to 5:00 pm CET. In case you will miss the workshop but are interested in the topic, Karel will be happy to provide further information – just contact him!</li>
+                    <li>The OSIG will host two open sessions within the Practical Project seminars this semester, and all students are warmly invited to attend if this fits within the schedule of their Practical Project seminar tutors. On 17th November, Cassie and Melanie will lead a session on Preregistration. On 1st December, Micha will lead a session on Git. Both sessions will take place in Room 031 from 12:30–2:00 pm.</li>
+                    <li>Related to our news on joining the ReproducibiliTEA network, our first OSIG ReproducibiliTEA Journal Club will be held on Tuesday, 2nd December, from 10:30 - 11:30 in room 036, led by Sumbul Jafri. These sessions are an open space to discuss papers on reproducible research. All staff and students are invited! Stay tuned for the official invitation and discussion paper.</li>
+                    <li>On 15th January 2026 from 16:15 - 17:45, Cassie and Micha will lead an interactive Introduction to Open Science in the Department Colloquium, designed to provide an accessible overview of key principles and practices. The session is open to all staff and students in the department, and we are pleased to extend the invitation to colleagues and students from the Medical Department and the Machine Learning and Data Science course. We warmly encourage everyone interested in learning how open science can enhance transparency, collaboration, and research quality to attend.</li>
+                    <li>Have you ever wondered whether there are large, open MRI datasets available for your research? We have good news! Amir, Micha, Karel, and Sumbul are organizing an interactive workshop on open neuroimaging datasets, including how to access them, what kinds of assessments and measures they include, and how to get started with basic analyses. The workshop will also feature a hands-on session where participants can explore and analyze data themselves. The event is planned for early next year, so stay tuned for more details!</li>
                 </ul>
             </div>
         </div>
@@ -299,8 +328,8 @@
         <div class="content">
              <div class="content-inner">
                 <ul class="content-list">
-                    <li>Starting with this issue, we’re launching a new section on AI (Artificial Intelligence) in Open Science! Given the rapid developments in this area, we’ll share updates on how AI can be used to foster open and reproducible research.</li>
-                    <li>For our first feature, we want to share a <a href="https://doi.org/10.1162/qss_a_00337" target="_blank">paper</a> by Mohammad Hosseini and his team that nicely summarizes the challenges and opportunities of using AI in Open Science. They explain how Generative AI can broaden access to knowledge, improve research tools, and encourage public engagement. However, they also caution that the limitations of Generative AI could pose risks to research integrity and reproducibility. It's a thought-provoking read that sets the stage for many future discussions.</li>
+                    <li>For this issue’s section on AI in Open Science, we’re looking at an exciting evolution of a core concept: the FAIR principles. Most of us are familiar with the original FAIR principles (Findable, Accessible, Interoperable, and Reusable), which were <a href="https://www.nature.com/articles/sdata201618" target="_blank">published in Scientific Data in 2016</a> and set a new standard for data management. But as AI becomes more central to our work, a new question has emerged: are those principles enough to ensure our data is ready for modern machine learning?</li>
+                    <li>This is where FAIR² (or "FAIR-square") comes in. A new initiative, which you can <a href="https://fair2.ai/about" target="_blank">read about at https://fair2.ai/about</a>, proposes a crucial extension: making data AI-Ready, Responsible AI aligned, and Context-Rich. FAIR² builds directly on the original principles but adds new layers essential for AI. It emphasizes the need for AI-Ready Design (ensuring datasets are interoperable with AI tools), Responsible AI Alignment (transparently documenting biases, limitations, and ethical considerations), and Context-Rich Metadata (detailing how datasets were created and validated). The goal is to ensure that datasets – and the AI models trained on them – are not just usable but also trusted, reproducible, and ethically aligned. It's a critical discussion on how to adapt our open science standards for a new wave of computational research!</li>
                     <li>A quick note on process: In the spirit of transparency (and integrating AI tools!), this newsletter was polished for readability with the assistance of Google's Gemini 2.5 Pro model. All content and final edits were, of course, reviewed and approved by Daniel before publishing.</li>
                 </ul>
             </div>

@@ -104,6 +104,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Newsletter 11th Issue: June 2025</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./Newsletter/NL_October.html">
+ <span class="dropdown-text">Newsletter 12th Issue: October 2025</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="https://uol.de/psychologie/open-science/osig">
  <span class="dropdown-text">Previous Newsletters</span></a>
   </li>  
@@ -362,7 +366,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/kristantodan12\.github\.io\/osig-uol\.github\.io\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
