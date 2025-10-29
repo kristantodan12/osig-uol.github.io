@@ -49,13 +49,6 @@
     "text": "Would you like to get involved? Resources and projects are coordinated via a Stud.IP study group. Important information and announcements are also sent around to all members of this group. If you are associated with the University of Oldenburg (student or staff) you can send a membership request here and we will approve you as soon as possible.\nWe have biweekly meetings (Tuesdays 11-12 a.m. on uneven calendar weeks) that are open to everyone interested. You can join via the study group.\nIf you have further questions, please do not hesitate to contact our members via the study group or the mailing list or add your name to Openscience-Psychology mailing list to stay up to date with OS-related news and events."
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "Team",
-    "section": "",
-    "text": "Team"
-  },
-  {
     "objectID": "newsletter.html",
     "href": "newsletter.html",
     "title": "Newsletter",
@@ -103,5 +96,12 @@
     "title": "Newsletter",
     "section": "",
     "text": "This newsletter is sent to you by the Open Science interest group of the Psychology Department of Oldenburg (https://uol.de/psychologie/open-science/osig). Would you like to get involved? Resources and projects are coordinated via a Stud.IP study group. Important information and announcements are also sent around to all members of this group.\nIf you are associated with the University of Oldenburg (student or staff) you can send a membership request and we will approve you as soon as possible.\nIf you have further questions, please do not hesitate to contact our members via the study group or the mailing list osi_psychology_task-force@lists.uni-oldenburg.de or add your name to Openscience-Psychology mailing list.\n\nOpenscience-psychology mailing list\nOpenscience-psychology@listserv.uni-oldenburg.de\nhttps://mailman.uni-oldenburg.de/mailman/listinfo/openscience-psychology"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Team",
+    "section": "",
+    "text": "Team"
   }
 ]
