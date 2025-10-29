@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSIG Oldenburg Newsletter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Using a more professional and academic color scheme */
+        :root {
+            --primary-color: #003366; /* Dark Blue - UOldenburg Corporate Blue */
+            --secondary-color: #f0f4f8; /* Light gray-blue, for backgrounds */
+            --accent-color: #d1a300; /* Gold/Yellow - for highlights */
+            --text-color: #212529;
+            --light-gray: #ffffff;
+            --border-color: #dee2e6;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 0 1rem;
+        }
+
+        header {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 2.5rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 5px solid var(--accent-color);
+        }
+        
+        #header-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.5;
+        }
+
+        header h1 {
+            position: relative;
+            z-index: 2;
+            margin: 0;
+            font-size: 2.8rem;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+        }
+        
+        .intro {
+            padding: 2rem;
+            background: var(--light-gray);
+            margin: 2.5rem 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .collapsible {
+            background: var(--light-gray);
+            color: var(--primary-color);
+            cursor: pointer;
+            padding: 1.25rem 1.5rem;
+            width: 100%;
+            border: 1px solid var(--border-color);
+            text-align: left;
+            outline: none;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .collapsible:hover {
+            background-color: #e9ecef;
+            border-color: #adb5bd;
+        }
+        
+        .collapsible::after {
+            content: '+'; 
+            font-size: 2rem;
+            font-weight: 300;
+            color: var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .collapsible.active::after {
+            content: '−';
+            transform: rotate(180deg);
+        }
+        
+        .collapsible-title {
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-icon {
+            width: 28px;
+            height: 28px;
+            margin-right: 1rem;
+            stroke-width: 1.5;
+        }
+
+        .content {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            background-color: var(--light-gray);
+            border-radius: 0 0 12px 12px;
+            border: 1px solid var(--border-color);
+            border-top: none;
+        }
+        
+        .content-inner {
+            padding: 1.5rem 0.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .content-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .content-list li {
+            padding-left: 2rem;
+            position: relative;
+            margin-bottom: 1.25rem;
+        }
+
+        .content-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .content-list li::before {
+            content: '■';
+            position: absolute;
+            left: 0;
+            top: -2px;
+            font-size: 1.2rem;
+            color: var(--accent-color);
+        }
+
+        .content img {
+            max-width: 50%;
+            height: auto;
+            display: block;
+            margin: 1.5rem auto;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+        
+        .content figcaption {
+            text-align: center;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem 1rem;
+            margin-top: 3rem;
+            background: #e9ecef;
+            font-size: 0.9rem;
+            color: #495057;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        a {
+            color: blue; /* EDITED: Changed from dark blue to standard 'blue' */
+            font-weight: 500;
+            text-decoration: underline; /* EDITED: Ensured underline is active */
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <canvas id="header-canvas"></canvas>
+        <div class="container">
+            <h1>OSIG Oldenburg Newsletter</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="intro">
+            <p class="text-lg">Moin dear Open Science friends of Oldenburg (and beyond),</p>
+            <p>Please feel free to share this newsletter and, as always, feel free to join our online biweekly meetings (Tuesdays 11-12 a.m. on uneven calendar weeks in the study group and A7-0-36: Next meeting on 1st of July) that are open to everyone.</p>
+            <p>Previous newsletter issues can be retrieved from the <a href="https://osig-uol.github.io/" target="_blank">OSIG website</a>.</p>
+        </div>
+
+        <button type="button" class="collapsible">
+            <span class="collapsible-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="section-icon"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 2.19-9.51L1 10"/></svg>
+                <span>Review of the last months</span>
+            </span>
+        </button>
+        <div class="content">
+            <div class="content-inner">
+                <ul class="content-list">
+                    <li>The past few months have been buzzing with activity! In May, we had the pleasure of hosting Sein Jeung for our Open Science Colloquium series. She gave a valuable talk on promoting good scientific practices through teaching, emphasizing that open science extends beyond research into the classroom. It was fantastic to learn from her experience in structuring and organizing an open science course. A heartfelt thank you to Sein for sharing her insights with us!</li>
+                    <li>Our members have also been busy writing grants for the <a href="https://oscars-project.eu/open-calls" target="_blank">OSCARS project call</a>. Julius and Melanie are involved in the EEGManySteps project proposal, a collaboration with TU Berlin and the University of Maastricht aiming to develop a platform for reproducible mobile EEG. At the same time, Karel is part of the OscarsBrain proposal, which seeks to advance open neuroscience with standardized, FAIR-compliant tools for MEG and EEG data. We're keeping our fingers crossed for all the proposals!</li>
+                    <li>On the conference front, Julius, Micha, and Cassie attended the kick-off meeting for the <a href="https://www.lmu.de/psy/de/forschung/meta-rep" target="_blank">METAREP Priority Programme</a> in Tutzing. This exciting program aims to tackle the replication crisis in behavioral, social, and cognitive sciences. We're proud that a project from our department, <a href="https://github.com/metascience-uol" target="_blank">METEOR</a>, is part of it. The project will address the challenge of variability in preprocessing pipelines for mobile EEG and fMRI. We wish the whole team a successful start!</li>
+                    <li>We also had a strong presence at the PuG 2025 conference. Micha, Cassie, and Daniel ran a workshop on multiverse analysis in neuroimaging. In a symposium on methodological advances, Cassie and Daniel gave talks about advancing neuroimaging research with multiverse analysis and knowledge graph. Melanie presented posters on her work with the EEGManySteps project. And for the best news: huge congratulations to Cassie, who won the IGOR (The Interest Group Open and Reproducible Research) Award for Open and Reproducible Science at the conference. What a fantastic achievement!</li>
+                </ul>
+                <figure>
+                    <img src="Cassie.png" alt="Cassie with her IGOR Award"  onerror="this.onerror=null;this.src='https://placehold.co/400x533/e9ecef/495057?text=Image+Not+Found';">
+                    <figcaption>Cassie with her well-deserved IGOR Award for Open and Reproducible Science from the PuG 2025 conference (Credit: Merlind Ammann)</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <button type="button" class="collapsible">
+            <span class="collapsible-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="section-icon"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h4"/><path d="M16 2v20"/><path d="M10 2v2"/><path d="M10 7h4"/><path d="M10 11h4"/><path d="M10 15h4"/></svg>
+                <span>Open Science News</span>
+            </span>
+        </button>
+        <div class="content">
+             <div class="content-inner">
+                 <ul class="content-list">
+                    <li>Remember the Peer Community In (PCI)-Psychology platform we mentioned in our last newsletter? It is now officially open for submissions! PCI offers a fantastic, community-driven path to free Open Access publication. Check out <a href="https://psych.peercommunityin.org/" target="_blank">their webpage</a> to submit your work or to contribute as a reviewer and journal recommender.</li>
+                    <li>Hot off the press, a group of Early Career Researchers and members of IGOR recently published a <a href="https://journals.sagepub.com/doi/10.1177/25152459241297674" target="_blank">paper</a> introducing ARIADNE : A Scientific Navigator to Find Your Way Through the Resource Labyrinth of Psychological Sciences. This incredible project, also available as a <a href="https://igor-biodgps.github.io/ARIADNE/contentpages/intro.html" target="_blank">GitHub book</a>, provides a wealth of resources for conducting transparent research, from project inception to dissemination. Definitely worth a look!</li>
+                </ul>
+            </div>
+        </div>
+
+        <button type="button" class="collapsible">
+            <span class="collapsible-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="section-icon"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>Upcoming events</span>
+            </span>
+        </button>
+        <div class="content">
+            <div class="content-inner">
+                <ul class="content-list">
+                    <li>Mark your calendars for a series of exciting events! First up, on June 24th and 25th Cassie is organizing a <a href="https://hanse-ias.de/veranstaltungen/detail/event/520" target="_blank">workshop</a> at the Hanse-Wissenschaftskolleg on strategies to evaluate individually parameterized single-trial EEG, featuring a panel of experts. We can't wait to hear how it goes in the next newsletter, Cassie!</li>
+                    <li>On Friday, June 27th, Daniel will be part of a pre-conference virtual symposium for the <a href="httpsS://nomadit.co.uk/conference/metascience2025/p/16480" target="_blank">METASCIENCE 2025 conference</a>. Together with researchers from Ludwig-Maximilians-University of Munich, University of Cologne, and Chinese University of Hong Kong, he will discuss how meta-science and interdisciplinary research can empower Early Career Researchers. A very timely topic!</li>
+                    <li>Our Open Science Colloquium series continues: On July 10th, Kim Braun from the University Library and Information System will give an informative talk about Open Access publishing and financing options at the University of Oldenburg. This is a must-attend for anyone navigating the world of academic publishing.</li>
+                    <li>And finally, the moment is almost here! The first Oldenburg Open Science Conference 2025 is just around the corner. The full program is live, and it looks incredible. <a href="https://osig-uol.github.io/oosc/" target="_blank">Check it here</a>. To help us finalize planning, registration is necessary for all participants by the July 11th <a href="https://osig-uol.github.io/oosc/registration/" target="_blank">through this link</a>. Don't miss out on a great day of science followed by a small drink reception to network! Sign up whether you're presenting a poster or just joining the discussions. We can't wait to see you there!</li>
+                </ul>
+            </div>
+        </div>
+
+        <button type="button" class="collapsible">
+            <span class="collapsible-title">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="section-icon"><path d="M12 2a2.83 2.83 0 0 0-2 5 4.83 4.83 0 0 1-2.6 4.41 2.83 2.83 0 0 0-1.4 5.2V18a2 2 0 0 0 2 2h1.4a2.83 2.83 0 0 0 5.2 0H18a2 2 0 0 0 2-2v-.39a2.83 2.83 0 0 0-1.4-5.2A4.83 4.83 0 0 1 14 7a2.83 2.83 0 0 0-2-5Z"/><path d="M8 18v2"/><path d="M16 18v2"/><circle cx="12" cy="12" r="4"/><path d="M12 2v4"/><path d="M12 18v4"/><path d="m4.93 4.93 2.83 2.83"/><path d="m16.24 16.24 2.83 2.83"/><path d="m4.93 19.07 2.83-2.83"/><path d="m16.24 7.76-2.83-2.83"/></svg>
+                <span>AI for Open Science</span>
+            </span>
+        </button>
+        <div class="content">
+             <div class="content-inner">
+                <ul class="content-list">
+                    <li>Starting with this issue, we’re launching a new section on AI (Artificial Intelligence) in Open Science! Given the rapid developments in this area, we’ll share updates on how AI can be used to foster open and reproducible research.</li>
+                    <li>For our first feature, we want to share a <a href="https://doi.org/10.1162/qss_a_00337" target="_blank">paper</a> by Mohammad Hosseini and his team that nicely summarizes the challenges and opportunities of using AI in Open Science. They explain how Generative AI can broaden access to knowledge, improve research tools, and encourage public engagement. However, they also caution that the limitations of Generative AI could pose risks to research integrity and reproducibility. It's a thought-provoking read that sets the stage for many future discussions.</li>
+                    <li>A quick note on process: In the spirit of transparency (and integrating AI tools!), this newsletter was polished for readability with the assistance of Google's Gemini 2.5 Pro model. All content and final edits were, of course, reviewed and approved by Daniel before publishing.</li>
+                </ul>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>This newsletter is sent to you by the Open Science interest group of the Psychology Department of Oldenburg (<a href="https://uol.de/psychologie/open-science/osig" target="_blank">https://uol.de/psychologie/open-science/osig</a>).</p>
+            <p>Would you like to get involved? Resources and projects are coordinated via a Stud.IP study group. Important information and announcements are also sent around to all members of this group.</p>
+            <p>If you are associated with the University of Oldenburg (student or staff) you can send a membership request <a href="https://elearning.uni-oldenburg.de/dispatch.php/course/studygroup/details/62793789f65c00ca9acf3dfbed349662?again=yes" target="_blank">here</a> and we will approve you as soon as possible.</p>
+            <p>If you have further questions, please do not hesitate to contact our members via the study group or the mailing list <a href="mailto:osi_psychology_task-force@lists.uni-oldenburg.de">osi_psychology_task-force@lists.uni-oldenburg.de</a> or add your name to <a href="https://mailman.uni-oldenburg.de/mailman/listinfo/openscience-psychology" target="_blank">Openscience-Psychology mailing list</a>.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- INTERACTIVE COLLAPSIBLE SECTIONS ---
+        const collapsibles = document.getElementsByClassName("collapsible");
+        for (let i = 0; i < collapsibles.length; i++) {
+            collapsibles[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                const content = this.nextElementSibling;
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        }
+
+        // --- CATCHY CANVAS HEADER ANIMATION ---
+        const canvas = document.getElementById('header-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        const numParticles = 100;
+
+        function setCanvasSize() {
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+        }
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1;
+                this.speedX = Math.random() * 0.6 - 0.3;
+                this.speedY = Math.random() * 0.6 - 0.3;
+                this.color = 'rgba(255, 255, 255, 0.7)';
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.size > 0.2) this.size -= 0.01;
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+            }
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            for (let i = 0; i < numParticles; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function handleParticles() {
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                 if (particles[i].size <= 0.2) {
+                    particles[i] = new Particle();
+                }
+            }
+        }
+        
+        function connectParticles() {
+            let opacityValue = 1;
+            for (let a = 0; a < particles.length; a++) {
+                for (let b = a; b < particles.length; b++) {
+                    let distance = Math.sqrt(((particles[a].x - particles[b].x) ** 2) + ((particles[a].y - particles[b].y) ** 2));
+                    if (distance < 100) {
+                        opacityValue = 1 - (distance/100);
+                        ctx.strokeStyle = `rgba(209, 163, 0, ${opacityValue})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[a].x, particles[a].y);
+                        ctx.lineTo(particles[b].x, particles[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            handleParticles();
+            connectParticles();
+            requestAnimationFrame(animate);
+        }
+
+        // Debounce resize handler
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                setCanvasSize();
+                initParticles();
+            }, 100);
+        });
+        
+        // Initial setup
+        setCanvasSize();
+        initParticles();
+        animate();
+    </script>
+
+</body>
+</html>
