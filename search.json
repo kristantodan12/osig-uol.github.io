@@ -18,7 +18,14 @@
     "href": "oosc.html#organizers",
     "title": "1st Oldenburg Open Science Conference 2025",
     "section": "Organizers",
-    "text": "Organizers\nThe conference is organized by the Open Science Interest Group of the Carl von Ossietzky Universität Oldenburg. You can find more information about the group on our website."
+    "text": "Organizers\nThe conference is organized by the Open Science Interest Group (OSIG) of the Carl von Ossietzky Universität Oldenburg."
+  },
+  {
+    "objectID": "oosc.html#photo-gallery",
+    "href": "oosc.html#photo-gallery",
+    "title": "1st Oldenburg Open Science Conference 2025",
+    "section": "Photo gallery",
+    "text": "Photo gallery"
   },
   {
     "objectID": "oosc.html#sponsors",
@@ -82,6 +89,41 @@
     "title": "Team",
     "section": "",
     "text": "Team"
+  },
+  {
+    "objectID": "open_science_quests.html",
+    "href": "open_science_quests.html",
+    "title": "Open Science Quests",
+    "section": "",
+    "text": "The Open Science Quests are a hands-on initiative designed to encourage students and early-career researchers to actively engage with open science in a practical and approachable way. Each quest is a self-contained, interactive exercise that simultaneously teaches cognitive neuroscience concepts, Python programming, and core open science practices.\nThe initiative is based on the idea that open science is best learned by doing. Instead of reading about reproducibility or data sharing in the abstract, participants work directly with data, code, and notebooks, experiencing first-hand what it means to conduct transparent and reproducible research.\n\n\n\n\nLearn Cognitive Neuroscience – Explore real and synthetic neuroscience datasets to build intuition about brain and behaviour research.\n\n\nPractice Python – Every quest is implemented as a Jupyter Notebook, giving participants hands-on experience with Python in a scientific context.\n\n\nApply Open Science Principles – Participants engage with the four pillars of reproducible research: reproducibility, reproduction, robustness, and generalisation.\n\n\n\n\n\nQuest 1: Introduction to Open ScienceComing Soon\n\n\nThis first quest is a guided walkthrough covering synthetic regression and core open science concepts. It is designed for beginners with no prior experience in open science. Basic Python knowledge is enough to get started.\nWhat you will learn:\n\nWhat synthetic data is and why it matters for open science\nHow to build and interpret a regression model\nWhat reproducibility means in practice\nHow to test for reproduction, robustness, and generalisation in your own analyses\n\nHow to run it:\nThe quest runs entirely in your browser via Binder – no installation needed. Click the badge below, wait about one to two minutes for the environment to load, open the notebook, and run the cells with Shift + Enter.\n\n\n\nLaunch in Binder\n\n\nAll materials, including the notebook and setup instructions for local use, are available in the repository:\nOSIG-UOL/Open-Science-Quest-Introduction\n\n\nNew quests are currently in preparation. They will cover additional topics in cognitive neuroscience and open science practices.\nStay tuned by following the OSIG study group or checking back on this page.\n\n\n\n\n\n\nAre you a student or researcher interested in contributing a quest? Have an idea for a neuroscience dataset or open science concept that would make a great exercise? We would love to hear from you.\nReach out via the OSIG study group or open an issue on the GitHub repository."
+  },
+  {
+    "objectID": "open_science_quests.html#what-are-the-open-science-quests",
+    "href": "open_science_quests.html#what-are-the-open-science-quests",
+    "title": "Open Science Quests",
+    "section": "",
+    "text": "The Open Science Quests are a hands-on initiative designed to encourage students and early-career researchers to actively engage with open science in a practical and approachable way. Each quest is a self-contained, interactive exercise that simultaneously teaches cognitive neuroscience concepts, Python programming, and core open science practices.\nThe initiative is based on the idea that open science is best learned by doing. Instead of reading about reproducibility or data sharing in the abstract, participants work directly with data, code, and notebooks, experiencing first-hand what it means to conduct transparent and reproducible research."
+  },
+  {
+    "objectID": "open_science_quests.html#goals-of-the-initiative",
+    "href": "open_science_quests.html#goals-of-the-initiative",
+    "title": "Open Science Quests",
+    "section": "",
+    "text": "Learn Cognitive Neuroscience – Explore real and synthetic neuroscience datasets to build intuition about brain and behaviour research.\n\n\nPractice Python – Every quest is implemented as a Jupyter Notebook, giving participants hands-on experience with Python in a scientific context.\n\n\nApply Open Science Principles – Participants engage with the four pillars of reproducible research: reproducibility, reproduction, robustness, and generalisation."
+  },
+  {
+    "objectID": "open_science_quests.html#quests",
+    "href": "open_science_quests.html#quests",
+    "title": "Open Science Quests",
+    "section": "",
+    "text": "Quest 1: Introduction to Open ScienceComing Soon\n\n\nThis first quest is a guided walkthrough covering synthetic regression and core open science concepts. It is designed for beginners with no prior experience in open science. Basic Python knowledge is enough to get started.\nWhat you will learn:\n\nWhat synthetic data is and why it matters for open science\nHow to build and interpret a regression model\nWhat reproducibility means in practice\nHow to test for reproduction, robustness, and generalisation in your own analyses\n\nHow to run it:\nThe quest runs entirely in your browser via Binder – no installation needed. Click the badge below, wait about one to two minutes for the environment to load, open the notebook, and run the cells with Shift + Enter.\n\n\n\nLaunch in Binder\n\n\nAll materials, including the notebook and setup instructions for local use, are available in the repository:\nOSIG-UOL/Open-Science-Quest-Introduction\n\n\nNew quests are currently in preparation. They will cover additional topics in cognitive neuroscience and open science practices.\nStay tuned by following the OSIG study group or checking back on this page."
+  },
+  {
+    "objectID": "open_science_quests.html#get-involved",
+    "href": "open_science_quests.html#get-involved",
+    "title": "Open Science Quests",
+    "section": "",
+    "text": "Are you a student or researcher interested in contributing a quest? Have an idea for a neuroscience dataset or open science concept that would make a great exercise? We would love to hear from you.\nReach out via the OSIG study group or open an issue on the GitHub repository."
   },
   {
     "objectID": "index.html",
